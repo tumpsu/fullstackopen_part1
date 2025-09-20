@@ -13,17 +13,26 @@ const App = () => {
   ];
 
   const [selected, setSelected] = useState(0);
+  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
 
-  const handleClick = () => {
+  const handleNext = () => {
     const randomIndex = Math.floor(Math.random() * anecdotes.length);
     setSelected(randomIndex);
   };
 
+  const handleVote = () => {
+    const copy = [...votes];
+    copy[selected] += 1;
+    setVotes(copy);
+  };
+
   return (
     <div>
-      <h1>Anekdootti</h1>
+      <h1>Anekdootti ohjelmistotuotannosta</h1>
       <p>{anecdotes[selected]}</p>
-      <button onClick={handleClick}>Näytä satunnainen anekdootti</button>
+      <p>Ääniä: {votes[selected]}</p>
+      <button onClick={handleVote}>Äänestä</button>
+      <button onClick={handleNext}>Näytä satunnainen anekdootti</button>
     </div>
   );
 };
