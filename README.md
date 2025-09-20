@@ -4,3 +4,4 @@ Osa1 tehtävien palautusta varten.
 
 [kurssitiedot-sovellus](kurssitiedot/)
 [unicafe](unicafe/)
+[anekdootit](anekdootit/)
