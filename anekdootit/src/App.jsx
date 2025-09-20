@@ -26,13 +26,20 @@ const App = () => {
     setVotes(copy);
   };
 
+  const maxVotes = Math.max(...votes);
+  const topIndex = votes.indexOf(maxVotes);
+
   return (
     <div>
-      <h1>Anekdootti ohjelmistotuotannosta</h1>
+      <h1>Päivän anekdootti</h1>
       <p>{anecdotes[selected]}</p>
       <p>Ääniä: {votes[selected]}</p>
       <button onClick={handleVote}>Äänestä</button>
-      <button onClick={handleNext}>Näytä satunnainen anekdootti</button>
+      <button onClick={handleNext}>Seuraava satunnainen</button>
+
+      <h2>Suosituin anekdootti</h2>
+      <p>{anecdotes[topIndex]}</p>
+      <p>Ääniä: {votes[topIndex]}</p>
     </div>
   );
 };
